@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>FC Barcelona - Bryan Rosas</title>
+    <style>
+        /* Tipografía básica */
+        h1, h2, h3, p, nav, a { 
+            font-family: Arial, sans-serif; 
+        }
+
+        /* Cabecera */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #004D98; /* Azul Blaugrana */
+            color: white;
+            padding: 10px 20px;
+        }
+
+        /* Estilo de la barra de navegación */
+        .barra-navegacion {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        /* Estilo para los botones de navegación */
+        .boton-nav {
+            text-decoration: none;
+            color: #FFED00; /* Amarillo/Dorado Barcelona */
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: sans-serif;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .boton-nav:hover {
+            background-color: #A50044;
+            color: white;
+        }
+
+        /* Estilo del botón activo */
+        .boton-nav.activo {
+            background-color: #A50044; /* Grana Barcelona */
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Imagen/Logo de la cabecera */
+        .logo-cabecera {
+            width: 60px;
+            height: auto;
+            display: block;
+        }
+
+        /* Disposición principal */
+        main {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        /* Barra lateral (aside) */
+        aside {
+            width: 25%;
+            background-color: #A50044; /* Grana Barça */
+            color: white;
+            padding: 15px;
+        }
+
+        aside h3 {
+            margin-top: 0;
+            color: #FFED00;
+        }
+
+        /* BANNER DE PUBLICIDAD DE COCA-COLA */
+        .banner-publicidad {
+            background: linear-gradient(180deg, #E61C24 0%, #BA0007 100%);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 15px;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tag-anuncio {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.8);
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .contenedor-lata {
+            position: relative;
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .lata-coca {
+            width: 60px;
+            height: 110px;
+            background: linear-gradient(90deg, #900, #f00 25%, #ff4d4d 45%, #e60000 70%, #800);
+            border-radius: 10px 10px 14px 14px;
+            position: relative;
+            box-shadow: -5px 10px 15px rgba(0,0,0,0.5), inset 0 3px 4px rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-6deg);
+            transition: transform 0.3s ease;
+        }
+
+        .banner-publicidad:hover .lata-coca {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .lata-tapa {
+            position: absolute;
+            top: -6px;
+            width: 52px;
+            height: 6px;
+            background: linear-gradient(90deg, #888, #fff, #aaa);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .lata-base {
+            position: absolute;
+            bottom: -4px;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, #666, #ccc, #888);
+            border-radius: 0 0 4px 4px;
+        }
+
+        .logo-coca {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 15px;
+            font-weight: bold;
+            font-style: italic;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+            transform: rotate(-90deg);
+            white-space: nowrap;
+            letter-spacing: -0.5px;
+        }
+
+        .sombra-lata {
+            position: absolute;
+            bottom: 5px;
+            width: 70px;
+            height: 12px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 50%;
+            filter: blur(4px);
+        }
+
+        .banner-publicidad h4 {
+            margin: 10px 0 4px 0;
+            color: #FFFFFF;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .banner-publicidad p {
+            font-size: 12px;
+            color: #FFE6E6;
+            margin: 4px 0 12px 0;
+            line-height: 1.3;
+        }
+
+        .boton-publicidad {
+            display: inline-block;
+            background-color: #FFFFFF;
+            color: #D30008;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .boton-publicidad:hover {
+            background-color: #FFF0F0;
+            transform: translateY(-2px);
+        }
+
+        /* Sección principal */
+        section {
+            width: 75%;
+            background-color: #EDBB00; /* Dorado / Amarillo Barça */
+            color: #333;
+            padding: 15px;
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            background-color: #004D98;
+            color: white;
+            padding: 10px;
+            margin-top: 15px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1 style="margin: 0;">Sitio Web de Bryan Rosas</h1>
+            <nav class="barra-navegacion">
+                <a href="#" class="boton-nav activo" onclick="mostrarSeccion('inicio', this)">Inicio</a>
+                <a href="#" class="boton-nav" onclick="mostrarSeccion('noticias', this)">Noticias</a>
+                <a href="#" class="boton-nav" onclick="mostrarSeccion('jugadores', this)">Jugadores</a>
+            </nav>
+        </div>
+        <!-- Escudo del FC Barcelona en la cabecera -->
+        <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" alt="Escudo FC Barcelona" class="logo-cabecera">
+    </header>
+
+    <main>
+        <aside>
+            <h3>Barra lateral</h3>
+            
+            <!-- Anuncio de Publicidad de Coca-Cola -->
+            <div class="banner-publicidad">
+                <span class="tag-anuncio">Publicidad</span>
+                
+                <div class="contenedor-lata">
+                    <div class="sombra-lata"></div>
+                    <div class="lata-coca">
+                        <div class="lata-tapa"></div>
+                        <span class="logo-coca">Coca-Cola</span>
+                        <div class="lata-base"></div>
+                    </div>
+                </div>
+
+                <h4>Destapa la Magia</h4>
+                <p>Siente el sabor único y refrescante en cada momento.</p>
+                <a href="https://www.coca-cola.com" target="_blank" class="boton-publicidad">Descubrir más</a>
+            </div>
+        </aside>
+
+        <section>
+            <article id="contenido-articulo">
+                <h2>¡Visca el Barça!</h2>
+                <p>Bienvenido a la página de Bryan Rosas sobre el FC Barcelona. Aquí encontrarás todo acerca de los partidos, jugadores e historia del club culé.</p>
+                <p>Més que un club (Más que un club).</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Pie de Página - Creado por Bryan Rosas &copy; 2026</p>
+        <p><strong>IG: @bxv_rosaas</strong></p>
+    </footer>
+
+    <script>
+        function mostrarSeccion(seccion, elemento) {
+            // Actualizar botones activos
+            const botones = document.querySelectorAll('.boton-nav');
+            botones.forEach(btn => btn.classList.remove('activo'));
+            elemento.classList.add('activo');
+
+            // Cambiar contenido central
+            const contenedor = document.getElementById('contenido-articulo');
+
+            if (seccion === 'inicio') {
+                contenedor.innerHTML = `
+                    <h2>¡Visca el Barça!</h2>
+                    <p>Bienvenido a la página de Bryan Rosas sobre el FC Barcelona. Aquí encontrarás todo acerca de los partidos, jugadores e historia del club culé.</p>
+                    <p>Més que un club (Más que un club).</p>
+                `;
+            } else if (seccion === 'noticias') {
+                contenedor.innerHTML = `
+                    <h2>Últimas Noticias del FC Barcelona</h2>
+                    <p><strong>Tranquilidad con Eric García:</strong> Los servicios médicos confirman que sufre solo una leve sobrecarga en la rodilla tras retirarse de la concentración nacional.</p>
+                    <p><strong>Raphinha y Lamine Yamal lideran al equipo:</strong> El atacante brasileño selló un triplete frente al Sevilla en la victoria 3-1 por LaLiga, mientras Lamine sigue destacando en el ataque blaugrana.</p>
+                    <p><strong>Spotify Camp Nou designado por la UEFA:</strong> El estadio culé ha sido confirmado como la sede oficial para la gran final de la UEFA Champions League de 2029.</p>
+                    <p><strong>Próximo reto:</strong> El primer equipo prepara su siguiente compromiso de liga frente al Getafe en casa.</p>
+                `;
+            } else if (seccion === 'jugadores') {
+                contenedor.innerHTML = `
+                    <h2>Plantilla de Jugadores</h2>
+                    <p>Conoce a los referentes del primer equipo:</p>
+                    <ul>
+                        <li><strong>Lamine Yamal:</strong> Extremo derecho estrella y gran promesa culé.</li>
+                        <li><strong>Pedri:</strong> El cerebro del mediocampo azulgrana.</li>
+                        <li><strong>Raphael Dias Belloli (Raphinha):</strong> Eje principal en el ataque azulgrana con actuaciones sobresalientes.</li>
+                        <li><strong>Fermín López:</strong> Intensidad y carácter en la zona de creación.</li>
+                    </ul>
+                `;
+            }
+        }
+    </script>
+
+</body>
+</html>
